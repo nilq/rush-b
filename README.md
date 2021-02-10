@@ -1,17 +1,22 @@
-# baguette
-## A tasty language.
-
-A very important language for modelling.
+# Baguette
+## Match the world burn.
 
 ---
 
 ## Syntax
 
-```
-public mut fac =
-  | 0 => 1
-  | n => n * fat(n - 1)
+```java
+public static if =
+  | true body _  => body!
+  | false _ body => body!
 
-# mutable pattern so watch the world burn
-fac[0] = | 1 => 1
+public static fib =
+  | 0 => 0
+  | 1 => 1
+  | n => fib(n - 1) + fib(n - 2)
+
+if fib(10) < 100
+  print("what")
+\else
+  print("makes more sense")
 ```
