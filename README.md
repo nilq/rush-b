@@ -13,5 +13,5 @@ public mut fac =
   | n => n * fat(n - 1)
 
 # mutable pattern so watch the world burn
-fac[0] = $| 1 => 1
+fac[0] = | 1 => 1
 ```
