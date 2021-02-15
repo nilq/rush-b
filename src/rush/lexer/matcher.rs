@@ -301,7 +301,7 @@ impl<'t> Matcher<'t> for NumberLiteralMatcher {
 
         while !tokenizer.end() {
             let current = tokenizer.peek().unwrap();
-            if !current.is_whitespace() && current.is_digit(10) || current == '.' {
+            if !current.is_whitespace() && current.is_digit(10) || ['_', '.'].contains(&current) {
                 if current == '.' && accum.contains('.') {
                     let pos = tokenizer.pos;
 
@@ -321,10 +321,15 @@ impl<'t> Matcher<'t> for NumberLiteralMatcher {
                             (pos.1 + 1, pos.1 + 1),
                         )
                     ));
+                } else if current == '_' {
+                    tokenizer.advance();
+                    continue
                 }
+
                 accum.push(tokenizer.next().unwrap())
+
             } else {
-                break;
+                break
             }
         }
 

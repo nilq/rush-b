@@ -1,16 +1,19 @@
 extern crate colored;
 
 mod rush;
-use rush::{lexer::*, source::Source};
+use rush::{lexer::*, parser::*, source::Source};
 
 fn main() {
     let test = r#"
-public static fib =
-    | 0 => 0
-    | 1 => 1
-    | n => fib (n - 2) + fib (n - 1)
+@swag
+let a =
+    "this will print automatically"
 
-fib 100s
+let b =
+    10 + 10
+
+a = +a + -b
+goto 'swag'
     "#;
     
     let source = Source::from(
@@ -29,5 +32,14 @@ fib 100s
         }
     }
 
-    println!("{:#?}", tokens)
+    println!("Stuck.");
+
+    let mut parser = Parser::new(tokens, &source);
+
+    match parser.parse() {
+        Ok(ref ast) => {
+            println!("{:#?}", ast)
+        }
+        _ => ()
+    }
 }

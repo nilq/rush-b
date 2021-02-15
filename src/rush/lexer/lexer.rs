@@ -33,10 +33,11 @@ impl<'l> Lexer<'l> {
         lexer
             .matchers
             .push(Rc::new(KeyMatcher::new(Keyword, &[
-                "public", "import", "let", "@",
+                "public", "import", "let",
                 "static", "goto", "=>",
-                "loop", "if", "elif", "repeat", "for", "while", "unless",
+                "loop", "if", "elif", "repeat", "for", "while", "until", "unless",
                 "pass",
+                "break", "skip",
             ])));
 
         lexer
@@ -64,7 +65,7 @@ impl<'l> Lexer<'l> {
 
         lexer.matchers.push(Rc::new(ConstantCharMatcher::new(
             Symbol,
-            &['(', ')', '[', ']', '{', '}', ',', ':', ';', '=', '.', '|', '!'],
+            &['(', ')', '[', ']', '{', '}', ',', ':', ';', '=', '.', '|', '!', '@'],
         )));
 
         lexer

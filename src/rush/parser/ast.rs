@@ -8,6 +8,8 @@ pub enum StatementNode {
     Expression(Expression),
     Declaration(String, Expression),
     Assignment(String, Expression),
+    Label(String),
+    Goto(Expression), // hahah
 }
 
 #[derive(Debug, Clone, PartialEq)]
