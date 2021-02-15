@@ -9,10 +9,12 @@
 
 ## Syntax
 
-### Fibonacci.
-
 Everything in a static match-function is static. Why run it?\
 The answer is simple: don't. We cheat from home, do stuff at compile-time.
+
+### Function.
+
+Normies call them functions. This is a match-pattern on BCAAs.
 
 ```java
 public static fib =
