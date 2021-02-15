@@ -14,7 +14,7 @@ The answer is simple: don't. We cheat from home, do stuff at compile-time.
 
 ### Function.
 
-Normies call them functions. This is a match-pattern on BCAAs.
+Normies call them functions. This is a match-pattern on "*BCAAs*".
 
 ```java
 public static fib =
