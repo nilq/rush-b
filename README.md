@@ -18,9 +18,9 @@ Normies call them functions. This is a match-pattern on "*BCAA*".
 
 ```java
 public static fib =
-    | 0 =>
-    | 1 =>
-    | n => fib n
+    | 0 => 0
+    | 1 => 1
+    | n => fib (n - 2) + fib (n - 1)
     
 fib 100
 ```
